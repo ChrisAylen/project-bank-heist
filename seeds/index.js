@@ -1,6 +1,6 @@
 const seedUsers = require('./userData');
-const seedBlogs = require('./blogData');
-const seedComments = require('./commentData');
+const seedaccount = require('./accountData');
+const seedtransaction = require('./transactionData');
 
 
 const sequelize = require('../config/connection');
@@ -9,13 +9,13 @@ const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
   await seedUsers();
-  console.log('\n----- CATEGORIES SEEDED -----\n');
+  console.log('\n----- USER SEEDED -----\n');
 
-  await seedBlogs();
-  console.log('\n----- PRODUCTS SEEDED -----\n');
+  await seedaccount();
+  console.log('\n----- ACCOUNT SEEDED -----\n');
 
-  await seedComments();
-  console.log('\n----- TAGS SEEDED -----\n');
+  await seedtransaction();
+  console.log('\n----- TRANSACTION SEEDED -----\n');
     process.exit(0);
 };
 
