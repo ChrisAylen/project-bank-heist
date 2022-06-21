@@ -20,7 +20,6 @@ Account.init(
     },
     interest_rate: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
