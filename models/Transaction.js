@@ -17,7 +17,7 @@ Transaction.init(
       defaultValue: DataTypes.NOW,
     },
     transaction_amount: {
-      type: DataTypes.STRING,
+      type: DataTypes.DECIMAL,
     },
     transaction_id: {
       type: DataTypes.INTEGER,

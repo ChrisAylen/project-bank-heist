@@ -5,19 +5,19 @@ const withAuth = require('../../utils/auth');
 
 
 router.post('/', withAuth, async (req, res) => {
+    let trans_id = 1;
     try {
       //let trans_id = crypto.randomUUID();
-      let trans_id = 1;
       const newTransaction = await Transaction.create({
         transaction_amount:req.body.amount,
-        trandsaction_id: trans_id,
+        transaction_id: trans_id,
         account_id: req.body.account_from_id,
         user_id: req.session.user_id,
 
       });
       const newTransaction2 = await Transaction.create({
         transaction_amount:req.body.amount*-1,
-        trandsaction_id: trans_id,
+        transaction_id: trans_id,
         account_id:  req.body.account_to_id,
         user_id: req.session.user_id,
       });
@@ -26,6 +26,9 @@ router.post('/', withAuth, async (req, res) => {
   
       res.status(200).json(newTransaction);
     } catch (err) {
+        console.log(trans_id)
       res.status(400).json(err);
     }
   });
+
+  module.exports = router;
