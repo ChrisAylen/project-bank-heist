@@ -13,6 +13,7 @@ Account.init(
     },
     account_name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     balance: {
       type: DataTypes.DECIMAL,
@@ -20,6 +21,7 @@ Account.init(
     },
     interest_rate: {
       type: DataTypes.DECIMAL,
+      defaultValue: 0.15,
     },
     user_id: {
       type: DataTypes.INTEGER,
