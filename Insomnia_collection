@@ -1,0 +1,119 @@
+_type: export
+__export_format: 4
+__export_date: 2022-06-23T18:36:39.876Z
+__export_source: insomnia.desktop.app:v2022.4.1
+resources:
+  - _id: req_3a3d254cf17e4d6585d8dc9894ec9ec3
+    parentId: fld_9c92bdc473a240ffa57db437abcff933
+    modified: 1656009073317
+    created: 1656008211041
+    url: http://localhost:3001/api/user/
+    name: AddUser
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username" : "test",
+        	"email" : "test@gmail.com",
+        	"password" : "password123456"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_1d1a8d22c2274909adbcc2598a0b2c8d
+    authentication: {}
+    metaSortKey: -1656008211041
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9c92bdc473a240ffa57db437abcff933
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656008083682
+    created: 1656008083682
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656008083682
+    _type: request_group
+  - _id: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    parentId: null
+    modified: 1656008034285
+    created: 1656008034285
+    name: Bank Site
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_c2fc361c48dc4232b219d003b7b1ec34
+    parentId: fld_9c92bdc473a240ffa57db437abcff933
+    modified: 1656009079324
+    created: 1656008087151
+    url: http://localhost:3001/api/user/login/
+    name: LoginUser
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email" : "test@gmail.com",
+        	"password" : "password123456"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_16e22a0578514ea3a0c1c6201025eb66
+    authentication: {}
+    metaSortKey: -1656008087151
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_d97b4925d60ade0e4ee5131e07518ce13e54e7d3
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656008560809
+    created: 1656008034289
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1656008034289
+    _type: environment
+  - _id: jar_d97b4925d60ade0e4ee5131e07518ce13e54e7d3
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656009081282
+    created: 1656008034291
+    name: Default Jar
+    cookies:
+      - key: connect.sid
+        value: s%3AiK2Iq8851RcLbBD0_jT7V6ZI7iWldb9s.77P7IGp%2BjezbOpZ5fVvLekXvTZpKmB4d9TJv%2BXUxFbM
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2022-06-23T18:31:21.282Z
+        lastAccessed: 2022-06-23T18:31:21.282Z
+        id: "08623981617303156"
+    _type: cookie_jar
+  - _id: spc_4aba0758334044dd927f757350956d54
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656008034286
+    created: 1656008034286
+    fileName: Bank Site
+    contents: ""
+    contentType: yaml
+    _type: api_spec
