@@ -5,9 +5,9 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
   try {
     const newAccount = await Account.create({
-      account_name:req.params.account,
-      balance:req.params.balance,
-      interest_rate:req.params.interest_rate,
+      account_name:req.body.account,
+      balance:req.body.balance,
+      interest_rate:req.body.interest_rate,
       user_id: req.session.user_id,
     });
     
