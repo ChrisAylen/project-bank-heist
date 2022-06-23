@@ -20,7 +20,7 @@ Transaction.init(
       type: DataTypes.DECIMAL,
     },
     transaction_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
 
     },

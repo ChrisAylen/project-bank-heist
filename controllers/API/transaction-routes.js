@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { Transaction } = require('../../models');
 const withAuth = require('../../utils/auth');
-//const crypto  = require('crypto');
+const crypto  = require('crypto');
 
 
 router.post('/', withAuth, async (req, res) => {
-    let trans_id = 1;
+    //let trans_id = 1;
+    let trans_id = crypto.randomUUID();
     try {
-      //let trans_id = crypto.randomUUID();
       const newTransaction = await Transaction.create({
         transaction_amount:req.body.amount,
         transaction_id: trans_id,
