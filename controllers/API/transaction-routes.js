@@ -1,19 +1,30 @@
 const router = require('express').Router();
-const { Account } = require('../../models');
+const { Transaction } = require('../../models');
 const withAuth = require('../../utils/auth');
+//const crypto  = require('crypto');
 
 
 router.post('/', withAuth, async (req, res) => {
     try {
-      const newAccount = await Account.create({
-        account_name:req.body.account,
-        balance:req.body.balance,
-        interest_rate:req.body.interest_rate,
+      //let trans_id = crypto.randomUUID();
+      let trans_id = 1;
+      const newTransaction = await Transaction.create({
+        transaction_amount:req.body.amount,
+        trandsaction_id: trans_id,
+        account_id: req.body.account_from_id,
+        user_id: req.session.user_id,
+
+      });
+      const newTransaction2 = await Transaction.create({
+        transaction_amount:req.body.amount*-1,
+        trandsaction_id: trans_id,
+        account_id:  req.body.account_to_id,
         user_id: req.session.user_id,
       });
+
       
   
-      res.status(200).json(newAccount);
+      res.status(200).json(newTransaction);
     } catch (err) {
       res.status(400).json(err);
     }
