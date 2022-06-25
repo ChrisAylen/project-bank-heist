@@ -11,9 +11,9 @@ Account.hasMany(Transaction, {
   foreignKey: 'account_id',
 });
 
-Account.belongsTo(User, {
-  foreignKey: 'id'
-});
+// Account.belongsTo(User, {
+//   foreignKey: 'id'
+// });
 
 Transaction.belongsTo(Account, {
   foreignKey: 'account_id'
