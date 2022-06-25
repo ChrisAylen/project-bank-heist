@@ -67,19 +67,19 @@ router.get('/:id', withAuth, async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
   try {
     const transactionsForAccount = await Transaction.findAll({
-      include: [ { model:Account, 
+      //include: [ { model:Account, 
       where: {
-        user_id: req.session.user_id,
-        id:req.body.account_id,
+        //user_id: req.session.user_id,
+        account_id: req.body.account_id,
       },
-    }],
-      
+    },
+
       // where: {
       //   //account_id:req.body.account_id,
       // },
 
-    });
-    if (!transactionsForAccount) {
+    );
+    if (transactionsForAccount.length == 0) {
       res.status(404).json({ message: 'No transactions found for this account' });
       return;
     }
