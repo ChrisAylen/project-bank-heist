@@ -39,6 +39,7 @@ router.post('/', async (req, res) => {
     const newAccount = await Account.create({
       account_name:default_accounnt,
       balance:balance,
+      user_id: req.session.user_id
     });
 
     const output= {
