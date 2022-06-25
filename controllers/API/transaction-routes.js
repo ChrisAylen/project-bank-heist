@@ -90,7 +90,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 //Get All transactions for a month for an account
-// router.get('/', withAuth, async (req, res) => {
+// router.get('/month', withAuth, async (req, res) => {
 //   try {
 //     //get ransactions for the current month
 //     const transactionsForAccount = await Transaction.findAll({
@@ -105,9 +105,7 @@ router.get('/', withAuth, async (req, res) => {
           
 //       },
 //     },
-
-
-//     );
+//   });
 //     if (transactionsForAccount.length == 0) {
 //       res.status(404).json({ message: 'No transactions found for this account' });
 //       return;
