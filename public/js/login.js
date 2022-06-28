@@ -48,7 +48,3 @@ console.log(document.querySelector('.login-form'))
 document
   .querySelector('.form-signin')
   .addEventListener('submit', loginFormHandler);
-
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
