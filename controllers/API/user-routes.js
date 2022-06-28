@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Account } = require("../../models");
 
 // The `/api/user` endpoint
 //we REALLY dont want this endpoint to be public!!
@@ -25,6 +25,10 @@ const { User } = require("../../models");
 //   }
 // });
 // CREATE new user
+
+const default_accounnt= "current_account";
+const balance= 10;
+
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
@@ -32,12 +36,25 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
+    const newAccount = await Account.create({
+      account_name:default_accounnt,
+      balance:balance,
+      user_id: req.session.user_id
+    });
+
+    const output= {
+      use_name: req.body.username,
+      email: req.body.email,
+      account_name:default_accounnt,
+
+      balance:balance,
+    }
 
     // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
       req.session.loggedIn = true;
 
-      res.status(200).json(userData);
+      res.status(200).json(output);
     });
   } catch (err) {
     console.log(err);
