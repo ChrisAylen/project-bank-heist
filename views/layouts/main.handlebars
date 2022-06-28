@@ -18,15 +18,14 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="/">Home</a>
+          <a class="nav-item nav-link active" href="/profile">Profile</a>
           {{#if logged_in}}
-          <a class="nav-item nav-link" href="/profile">Profile</a>
           <button class="no-button" id="logout">logout</button>
         </div>
       </div>
     </nav>
           {{else}}
-          <a class="nav-item nav-link" href="/login">Profile</a>
-          <a class="nav-item nav-link" href="/login">login</a>
+          <button class="no-button" id="login" href="/login">login</button>
         </div>
       </div>
     </nav>
@@ -38,7 +37,7 @@
     <p class="mt-5 mb-3 text-muted">© 2022- </p>
     </footer>
     {{#if logged_in}}
-    <script src="/js/logout.js"></script>
+    <script src="/public/logout.js"></script>
     {{/if}}
   </body>
 </html>
