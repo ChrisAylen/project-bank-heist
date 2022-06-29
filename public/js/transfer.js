@@ -9,7 +9,7 @@ const banktransfer = async (event) => {
     console.log(user_account)
 
 
-    if (account_to_id && amount) {
+    if (account_to_id && amount ) {
       const response = await fetch('/api/transaction', {
         method: 'POST',
         body: JSON.stringify({ account_to_id, amount, account_from_id}),
