@@ -26,7 +26,7 @@ const { User, Account } = require("../../models");
 // });
 // CREATE new user
 
-const default_account= "current_account";
+const default_account= "current account";
 const balance= 10;
 
 router.post('/', async (req, res) => {

@@ -12,15 +12,16 @@ router.post('/', withAuth, async (req, res) => {
   let inverseTransAmount = transAmount * -1;
   let trans_id = crypto.randomUUID();
   try {
+
     const newTransaction = await Transaction.create({
-      transaction_amount: transAmount,
+      transaction_amount: inverseTransAmount ,
       transaction_id: trans_id,
       account_id: req.body.account_from_id,
       user_id: req.session.user_id,
 
     });
     const newTransaction2 = await Transaction.create({
-      transaction_amount: inverseTransAmount,
+      transaction_amount: transAmount,
       transaction_id: trans_id,
       account_id: req.body.account_to_id,
       user_id: req.session.user_id,

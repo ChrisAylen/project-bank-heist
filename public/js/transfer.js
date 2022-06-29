@@ -1,41 +1,32 @@
-// const newComment = async (event) => {
-//   const postid= event.target.id
-//   const all_comment = document.querySelectorAll('#project-comment')
-//   const comment_index= postid-1 
-//   const comment= all_comment[comment_index].value.trim();
-
+const banktransfer = async (event) => {
+    event.preventDefault();
   
-//   if (comment) {
-//     event.preventDefault();
-//     const response = await fetch(`/api/comment`, {
-//       method: 'POST',
-//       body: JSON.stringify({ comment: comment, post_id: postid }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
-    
-//     if (response.ok) {
-//       document.location.replace('/');
-//     } else {
-//       alert('Failed to create post');
-//     }
-//   }
-// };
+    const account_option = document.getElementById("account-user")
+    const account_to_id= account_option[account_option.selectedIndex].id
+    const amount = document.querySelector('#transfer-amount').value.trim();
+    const user_account = document.getElementById("current_user_account")
+    const account_from_id = user_account[user_account.selectedIndex].id
+    console.log(user_account)
 
-// const commentBtn= document.getElementsByClassName('new-comment-form')
-// for(i=0; i<commentBtn.length; i++){
-//   commentBtn[i].addEventListener('submit', newComment)
-// }
- 
-//     const response = await fetch(`/api/projects/${id}`, {
-//       method: 'DELETE',
-//     });
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to delete project');
-//     }
-//   }
-// };
+    if (account_to_id && amount) {
+      const response = await fetch('/api/transaction', {
+        method: 'POST',
+        body: JSON.stringify({ account_to_id, amount, account_from_id}),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert(response.statusText);
+      }
+    }
+  };
+  
+  
+  
+  document
+    .querySelector('.transfer-form')
+    .addEventListener('submit', banktransfer);
+  

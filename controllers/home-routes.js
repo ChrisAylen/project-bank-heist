@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Account } = require('../models');
 const withAuth = require('../utils/auth');
+const { Op } = require("sequelize");
 
 // Prevent non logged in users from viewing the homepage
 router.get('/', async (req, res) => {
@@ -70,14 +71,29 @@ router.get('/account/:id', async (req, res) => {
 
 router.get('/transfer', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
+    console.log(req.session.user_id)
+    const transferData = await User.findAll({
+      where: {
+        id:{
+          [Op.ne]: req.session.user_id
+        }
+      },
       attributes: { exclude: ['password'] },
       include: [{ model: Account }],
       });
-      const user = userData.get({ plain: true });
-        
+
+    const current_userData= await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{model: Account}],
+    });
+
+    const current_user = current_userData.get({ plain: true });
+    const transfer = transferData.map((project) => project.get({ plain: true }));
+    console.log(current_user)
+
       res.render('banktransfer', {
-        user,
+        current_user,
+        transfer,
         logged_in: req.session.logged_in,
         });
   } catch (err) {
@@ -85,6 +101,8 @@ router.get('/transfer', withAuth, async (req, res) => {
   }
 }
 );
+
+
 
 
 
