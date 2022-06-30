@@ -27,16 +27,16 @@ router.get('/', async (req, res) => {
 
 
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/accounts', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Account }],
       });
       const user = userData.get({ plain: true });
-      console.log(user.accounts)
+
         
-      res.render('profile', {
+      res.render('accounts', {
         user,
         
         logged_in: req.session.logged_in,
@@ -94,7 +94,8 @@ router.get('/transfer', withAuth, async (req, res) => {
 
     const current_user = current_userData.get({ plain: true });
     const transfer = transferData.map((project) => project.get({ plain: true }));
-    console.log(current_user)
+
+    console.log(transfer)
 
       res.render('banktransfer', {
         current_user,
