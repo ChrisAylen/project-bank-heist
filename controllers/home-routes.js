@@ -52,10 +52,6 @@ router.get('/account/:id', async (req, res) => {
     const accountData = await Account.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
-        },
-        {
           model: Transaction,
           attributes: ['date_created', 'transaction_amount', 'transaction_id'],
         },

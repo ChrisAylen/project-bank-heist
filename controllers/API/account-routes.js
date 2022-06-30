@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Account, Transaction } = require('../../models');
+const { Account, Transaction, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -21,10 +21,6 @@ router.get('/:id', async (req, res) => {
   try {
     const accountData = await Account.findByPk(req.params.id, {
       include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
         {
           model: Transaction,
           attributes: ['date_created', 'transaction_amount', 'transaction_id'],
