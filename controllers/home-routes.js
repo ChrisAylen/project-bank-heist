@@ -47,7 +47,7 @@ router.get('/accounts', withAuth, async (req, res) => {
 }
 );
 
-router.get('/account/:id', async (req, res) => {
+router.get('/statement', async (req, res) => {
   try {
     const accountData = await Account.findByPk(req.params.id, {
       include: [
@@ -65,7 +65,7 @@ router.get('/account/:id', async (req, res) => {
     const accounts = accountData.get({ plain: true });
     console.log(accounts)
 
-    res.render('accountPage', {
+    res.render('statement', {
       ...accounts,
       logged_in: req.session.logged_in
     });
