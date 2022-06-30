@@ -17,6 +17,7 @@ router.post('/', withAuth, async (req, res) => {
     const toAccount = await Account.findByPk(req.body.account_to_id);
     fromAccountStartingBalance = fromAccount.balance;
     toAccountStartingBalance = toAccount.balance;
+  
 
     const newTransaction = await Transaction.create({
       transaction_amount: inverseTransAmount,
@@ -33,8 +34,15 @@ router.post('/', withAuth, async (req, res) => {
       account_id: req.body.account_to_id,
       user_id: req.session.user_id,
     });
-    fromAccount.balance = parseFloat(fromAccountStartingBalance) - parseFloat(transAmount);
-    toAccount.balance = parseFloat(toAccountStartingBalance) + parseFloat(transAmount);
+    fromAccount.update({
+      balance:parseFloat(fromAccountStartingBalance) - parseFloat(transAmount)
+    });
+    toAccount.update({
+      balance:parseFloat(toAccountStartingBalance) + parseFloat(transAmount)
+    });
+    //toAccount.update(balance=parseFloat(toAccountStartingBalance) + parseFloat(transAmount));
+    //fromAccount.balance = parseFloat(fromAccountStartingBalance) - parseFloat(transAmount);
+    //toAccount.balance = parseFloat(toAccountStartingBalance) + parseFloat(transAmount);
     const output = {
       transaction_id: trans_id,
       transaction_amount: transAmount,
