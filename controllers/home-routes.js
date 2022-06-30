@@ -34,6 +34,7 @@ router.get('/profile', withAuth, async (req, res) => {
       include: [{ model: Account }],
       });
       const user = userData.get({ plain: true });
+      console.log(user.accounts)
         
       res.render('profile', {
         user,
