@@ -3,6 +3,7 @@ const { Transaction } = require('../../models');
 const { Account } = require('../../models');
 const withAuth = require('../../utils/auth');
 const crypto = require('crypto');
+const { parse } = require('path');
 
 //Create a new transaction
 router.post('/', withAuth, async (req, res) => {
@@ -12,25 +13,36 @@ router.post('/', withAuth, async (req, res) => {
   let inverseTransAmount = transAmount * -1;
   let trans_id = crypto.randomUUID();
   try {
+    const fromAccount = await Account.findByPk(req.body.account_from_id);
+    const toAccount = await Account.findByPk(req.body.account_to_id);
+    fromAccountStartingBalance = fromAccount.balance;
+    toAccountStartingBalance = toAccount.balance;
 
     const newTransaction = await Transaction.create({
-      transaction_amount: inverseTransAmount ,
+      transaction_amount: inverseTransAmount,
       transaction_id: trans_id,
       account_id: req.body.account_from_id,
       user_id: req.session.user_id,
 
     });
+
+
     const newTransaction2 = await Transaction.create({
       transaction_amount: transAmount,
       transaction_id: trans_id,
       account_id: req.body.account_to_id,
       user_id: req.session.user_id,
     });
-
+    fromAccount.balance = parseFloat(fromAccountStartingBalance) - parseFloat(transAmount);
+    toAccount.balance = parseFloat(toAccountStartingBalance) + parseFloat(transAmount);
     const output = {
       transaction_id: trans_id,
       transaction_amount: transAmount,
       from_account: req.body.account_from_id,
+      from_account_starting_balance:fromAccountStartingBalance,
+      from_account_ending_balance:fromAccount.balance,
+      to_account_starting_balance:toAccountStartingBalance,
+      to_account_ending_balance:toAccount.balance,
       to_account: req.body.account_to_id,
       user_id: req.session.user_id
     }
@@ -103,7 +115,7 @@ router.get('/', withAuth, async (req, res) => {
 //             new Date(req.body.start_date),
 //             new Date(req.body.end_date),
 //           ],
-          
+
 //       },
 //     },
 //   });
