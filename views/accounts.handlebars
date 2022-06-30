@@ -8,7 +8,7 @@
       {{#each user.accounts as |account|}} 
       <h3>Account type: {{account.account_name}} </h3>
       <p>Balance: £ {{account.balance}} </p>
-      <a class="btn btn-primary float" id="sidebarToggle" href="/statement">Statements</a>
+      <a class="btn btn-primary float" id="sidebarToggle" href="/statement/{{account.id}}">Statements</a>
       {{/each}}
     </div>
 
