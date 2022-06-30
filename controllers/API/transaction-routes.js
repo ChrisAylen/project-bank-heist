@@ -34,10 +34,10 @@ router.post('/', withAuth, async (req, res) => {
       account_id: req.body.account_to_id,
       user_id: req.session.user_id,
     });
-    fromAccount.update({
+    await fromAccount.update ({
       balance:parseFloat(fromAccountStartingBalance) - parseFloat(transAmount)
     });
-    toAccount.update({
+    await toAccount.update({
       balance:parseFloat(toAccountStartingBalance) + parseFloat(transAmount)
     });
     //toAccount.update(balance=parseFloat(toAccountStartingBalance) + parseFloat(transAmount));
