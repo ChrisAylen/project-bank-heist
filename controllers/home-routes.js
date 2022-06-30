@@ -62,7 +62,7 @@ router.get('/statement/:id', async (req, res) => {
     console.log(accounts)
 
     res.render('statement', {
-      ...accounts,
+      accounts,
       logged_in: req.session.logged_in
     });
   } catch (err) {

@@ -1,24 +1,15 @@
 <div class="row">
   <div class="col-auto ">
-    <h1>Account summary</h1>
+    <h1>Statement</h1>
   </div>
+  <h2>transaction history</h2>
+      {{#each accounts.transactions as |transaction|}} 
+    <div class="list-group-item list-group-item-action list-group-item-light p-3">
+      <p>Transaction Date: {{format_date transaction.date_created}} amount: £{{transaction.transaction_amount}}</p>
+    </div>
+      {{/each}}
+
 </div>
 
-    {{!-- <div class="list-group-item list-group-item-action list-group-item-light p-3">
-      {{#each user.accounts as |account|}} 
-      <h3>Account type: {{account.account_name}} </h3>
-      <p>Balance: £ {{account.balance}} </p>
-      <button class="btn btn-primary" id="sidebarToggle" href="/statement">Statements</button>
-      {{/each}}
-    </div>
-<script src=""></script>
-<div id="page-content-wrapper">
-    <!-- Top navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <button class="btn btn-primary" id="sidebarToggle" href="">Send money</button>
-        </div>
-    </nav>
-</div> --}}
 
     
