@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Account } = require('../../models');
+const { Account, Transaction } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -17,6 +17,22 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+router.get('/:id', async (req, res) => {
+  try {
+    const accountData = await Account.findByPk(req.params.id, {
+      include: [
+        {
+          model: Transaction,
+          attributes: ['date_created', 'transaction_amount', 'transaction_id'],
+        },
+      ],
+    });
+    res.status(200).json(accountData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+);
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

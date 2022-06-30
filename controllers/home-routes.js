@@ -55,6 +55,10 @@ router.get('/account/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Transaction,
+          attributes: ['date_created', 'transaction_amount', 'transaction_id'],
+        },
       ],
     });
 
