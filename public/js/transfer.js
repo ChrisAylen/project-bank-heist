@@ -17,7 +17,7 @@ const banktransfer = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/accounts');
       } else {
         alert(response.statusText);
       }

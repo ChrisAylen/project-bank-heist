@@ -1,10 +1,10 @@
-<div class="row">
-  <div class="col-auto ">
+<div>
+  <div class="col-auto text-center m-3">
     <h1>Statement</h1>
   </div>
-  <h2>transaction history</h2>
+  <h2 class="m-3">Transaction history</h2>
       {{#each accounts.transactions as |transaction|}} 
-    <div class="list-group-item list-group-item-action list-group-item-light p-3">
+    <div class="list-group-item list-group-item-action list-group-item-light p-4">
       <p>Transaction Date: {{format_date transaction.date_created}} amount: £{{transaction.transaction_amount}}</p>
     </div>
       {{/each}}

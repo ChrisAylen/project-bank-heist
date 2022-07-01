@@ -31,7 +31,7 @@ router.get('/accounts', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Account }],
+      include: [{ model: Account}]
       });
       const user = userData.get({ plain: true });
 
@@ -53,13 +53,18 @@ router.get('/statement/:id', async (req, res) => {
       include: [
         {
           model: Transaction,
-          attributes: ['date_created', 'transaction_amount', 'transaction_id'],
+            include:[
+              {
+                model: Account,
+              },
+            ], 
         },
       ],
     });
 
     const accounts = accountData.get({ plain: true });
-    console.log(accounts)
+  
+
 
     res.render('statement', {
       accounts,
@@ -87,7 +92,7 @@ router.get('/transfer', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [{model: Account}],
     });
-
+ 
     const current_user = current_userData.get({ plain: true });
     const transfer = transferData.map((project) => project.get({ plain: true }));
 
