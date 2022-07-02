@@ -10,9 +10,21 @@ const accountData = [
   "user_id":1,
   },
   {
+    "account_name":"saving account",
+    "balance":0,
+    "interest_rate": 0,
+    "user_id":1,
+  },
+  {
     "account_name":"current account",
     "balance":301230.23,
     "interest_rate": 0.1,
+    "user_id":2,
+  },
+  {
+    "account_name":"saving account",
+    "balance":0,
+    "interest_rate": 0,
     "user_id":2,
   },
   {
@@ -22,9 +34,21 @@ const accountData = [
     "user_id":3,
   },
   {
+    "account_name":"saving account",
+    "balance":0,
+    "interest_rate": 0,
+    "user_id":3,
+  },
+  {
     "account_name":"current account",
     "balance":123230.23,
     "interest_rate": 0.1,
+    "user_id":4,
+  },
+  {
+    "account_name":"saving account",
+    "balance":0,
+    "interest_rate": 0,
     "user_id":4,
   },
   {
@@ -36,7 +60,7 @@ const accountData = [
   {
     "account_name":"saving account",
     "balance":50.23,
-    "interest_rate": 0.1,
+    "interest_rate": 0,
     "user_id":5,
   },
 ];

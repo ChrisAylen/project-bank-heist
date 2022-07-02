@@ -1,0 +1,272 @@
+_type: export
+__export_format: 4
+__export_date: 2022-07-02T11:28:44.026Z
+__export_source: insomnia.desktop.app:v2022.4.2
+resources:
+  - _id: req_0350f1a248574fe29e0a70159e022736
+    parentId: fld_ac071f1c18d5445dbbee1405bc9ec0d6
+    modified: 1656758698773
+    created: 1656147036442
+    url: localhost:3001/api/transaction/8be3b179-4212-489f-a360-258d88353b20
+    name: GetATransaction
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1656147036442
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ac071f1c18d5445dbbee1405bc9ec0d6
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656013139028
+    created: 1656013139028
+    name: Transaction
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656013139028
+    _type: request_group
+  - _id: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    parentId: null
+    modified: 1656008034285
+    created: 1656008034285
+    name: Bank Site
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_174324f14ab74ef6a034052915de1e65
+    parentId: fld_ac071f1c18d5445dbbee1405bc9ec0d6
+    modified: 1656758686084
+    created: 1656150499658
+    url: localhost:3001/api/transaction/
+    name: GetAllTransactionsForAccount
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"account_id": 2
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8083006ab72e46fa95756fcbdb70b132
+    authentication: {}
+    metaSortKey: -1656080089013.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3183d8552b8e4996b5fee83c8f7f19dd
+    parentId: fld_ac071f1c18d5445dbbee1405bc9ec0d6
+    modified: 1656758649563
+    created: 1656013141585
+    url: http://localhost:3001/api/transaction/
+    name: Transaction
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"amount": 10.00,
+        	"account_from_id": 1,
+        	"account_to_id":2,
+        	"user_id":1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_f2c95736e9af4c29bb0216121274a7ed
+    authentication: {}
+    metaSortKey: -1656013141585
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_bf45b7ac3ffd4c2d94ef23d79a37ceb8
+    parentId: fld_bb8b1140d0484a4aa38e7467739994b0
+    modified: 1656758622297
+    created: 1656009725772
+    url: http://localhost:3001/api/account/
+    name: Create Account
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"account_name" : "current account",
+        	"balance" : 500
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_35a9ccbb894b4edaac953fbf5a0627bd
+    authentication: {}
+    metaSortKey: -1656009725772
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_bb8b1140d0484a4aa38e7467739994b0
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656009724122
+    created: 1656009724122
+    name: Account
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656009724122
+    _type: request_group
+  - _id: req_3a3d254cf17e4d6585d8dc9894ec9ec3
+    parentId: fld_9c92bdc473a240ffa57db437abcff933
+    modified: 1656758590449
+    created: 1656008211041
+    url: http://localhost:3001/api/user/
+    name: AddUser
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username" : "insomnia",
+        	"email" : "insomnia@test.com",
+        	"password" : "12345678"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_1d1a8d22c2274909adbcc2598a0b2c8d
+    authentication: {}
+    metaSortKey: -1656008211041
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9c92bdc473a240ffa57db437abcff933
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656008083682
+    created: 1656008083682
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656008083682
+    _type: request_group
+  - _id: req_c2fc361c48dc4232b219d003b7b1ec34
+    parentId: fld_9c92bdc473a240ffa57db437abcff933
+    modified: 1656758534802
+    created: 1656008087151
+    url: http://localhost:3001/api/user/login/
+    name: LoginUser
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email" : "insomnia@test.com",
+        	"password" : "12345678"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_16e22a0578514ea3a0c1c6201025eb66
+    authentication: {}
+    metaSortKey: -1656008087151
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d015e808ea3f4b4a9086679dda98e975
+    parentId: fld_9c92bdc473a240ffa57db437abcff933
+    modified: 1656010633458
+    created: 1656010619662
+    url: http://localhost:3001/api/user/logout/
+    name: LogoutUser
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1655827494887
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_d97b4925d60ade0e4ee5131e07518ce13e54e7d3
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656008560809
+    created: 1656008034289
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1656008034289
+    _type: environment
+  - _id: jar_d97b4925d60ade0e4ee5131e07518ce13e54e7d3
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656758478474
+    created: 1656008034291
+    name: Default Jar
+    cookies:
+      - key: connect.sid
+        value: s%3AszoeT_MANbww9EuZdbacclonxhRrEUXP.XtNDH8MuIQJWqc4nYf5EZp6zk0zWB0ZU2KxYxNGbdII
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2022-06-23T18:31:21.282Z
+        lastAccessed: 2022-07-02T10:41:18.398Z
+        id: "07421898855978681"
+    _type: cookie_jar
+  - _id: spc_4aba0758334044dd927f757350956d54
+    parentId: wrk_5e6f7e6a86b54ef59608a8cdbc749ebf
+    modified: 1656008034286
+    created: 1656008034286
+    fileName: Bank Site
+    contents: ""
+    contentType: yaml
+    _type: api_spec
