@@ -33,8 +33,13 @@ const accountData = [
     "interest_rate": 0.1,
     "user_id":5,
   },
-  
+  {
+    "account_name":"saving account",
+    "balance":50.23,
+    "interest_rate": 0.1,
+    "user_id":5,
+  },
 ];
-//TODO: Hash the password on the way in
+
 const seedUsers = () => Account.bulkCreate(accountData);
 module .exports = seedUsers;

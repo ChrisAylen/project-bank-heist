@@ -9,8 +9,11 @@
             </div>
             <div class="form-group">
                 <label id="navbarDropdown" href="#" for="account">Select user:</label>
-                <select name="account-user" id="account-user" class="form-control">{{#each transfer as |transfers|}}
-                    <option id="{{transfers.id}}"> {{transfers.name}}: {{#each transfers.accounts as |accounts|}} {{accounts.account_name}} {{/each}} </option> {{/each}}
+                <select name="account-user" id="account-user" class="form-control">
+                    {{#each transfer as |transfers|}}
+                    {{#each transfers.accounts as |accounts|}}        
+                    <option id="{{accounts.id}}">{{transfers.name}}: {{accounts.account_name}} </option>{{/each}} 
+                    {{/each}}
                 </select>
             </div>
             <div class="form-group">

@@ -50,16 +50,7 @@ router.get('/accounts', withAuth, async (req, res) => {
 router.get('/statement/:id', async (req, res) => {
   try {
     const accountData = await Account.findByPk(req.params.id, {
-      include: [
-        {
-          model: Transaction,
-            include:[
-              {
-                model: Account,
-              },
-            ], 
-        },
-      ],
+      include: [{model: Transaction}]
     });
 
     const accounts = accountData.get({ plain: true });
@@ -96,7 +87,7 @@ router.get('/transfer', withAuth, async (req, res) => {
     const current_user = current_userData.get({ plain: true });
     const transfer = transferData.map((project) => project.get({ plain: true }));
 
-    console.log(transfer)
+    console.log(transfer[4].accounts)
 
       res.render('banktransfer', {
         current_user,
