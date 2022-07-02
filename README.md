@@ -156,8 +156,15 @@ curl --request POST \
 }'
 ```
 
-## Screenshots
+# Screenshots
 
+![alt ](/assets/images/homepage.PNG)
+
+![alt ](/assets/images/Accounts.PNG)
+
+![alt ](/assets/images/Transfer.PNG)
+
+![alt ](/assets/images/Statement.PNG)
 # API
 
 ![alt Landing Page](/assets/images/API_Endpoints_available_from_the_FE.PNG)
