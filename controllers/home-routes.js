@@ -87,7 +87,7 @@ router.get('/transfer', withAuth, async (req, res) => {
     const current_user = current_userData.get({ plain: true });
     const transfer = transferData.map((project) => project.get({ plain: true }));
 
-    console.log(transfer[4].accounts)
+    console.log(current_user.accounts[0])
 
       res.render('banktransfer', {
         current_user,

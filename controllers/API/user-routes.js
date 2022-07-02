@@ -26,8 +26,10 @@ const { User, Account } = require("../../models");
 // });
 // CREATE new user
 
-const default_account= "current account";
+const current_account= "current account";
 const balance= 10;
+const saving_account= "saving account";
+const saving_balance= 0;
 
 router.post('/', async (req, res) => {
   try {
@@ -39,18 +41,25 @@ router.post('/', async (req, res) => {
     });
     
     const user = userData.get({ plain: true });
+
     const newAccount = await Account.create({
-      account_name:default_account,
+      account_name:current_account,
       balance:balance,
       user_id: user.id
     });
 
+    const new_savingAccount = await Account.create({
+      account_name:saving_account,
+      balance:saving_balance,
+      user_id: user.id
+    });
+
+
     const output= {
       user_name: req.body.username,
       email: req.body.email,
-      account_name:default_account,
-
-      balance:balance,
+      account_name:[current_account, saving_account],
+      balance:[balance, saving_balance],
     }
 
 
