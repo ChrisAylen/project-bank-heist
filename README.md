@@ -158,13 +158,13 @@ curl --request POST \
 
 # Screenshots
 
-![alt ](/assets/images/homepage.PNG)
+![alt Homepage](/assets/images/homepage.PNG)
 
-![alt ](/assets/images/Accounts.PNG)
+![alt Accounts](/assets/images/Accounts.PNG)
 
-![alt ](/assets/images/Transfer.PNG)
+![alt Transfer](/assets/images/Transfer.PNG)
 
-![alt ](/assets/images/Statement.PNG)
+![alt Statement](/assets/images/Statement.PNG)
 # API
 
 ![alt Landing Page](/assets/images/API_Endpoints_available_from_the_FE.PNG)
