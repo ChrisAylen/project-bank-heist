@@ -23,11 +23,13 @@ The back end also provides a REST API that is used serverside end as well as a R
 
 * [Screenshot](#screenshots)
 
-* [Deployed Version](#Deployment)
+* [Deployed Version](#deployment)
+
+* [Docker](#docker)
 
 * [Questions](#questions)
 
-* [To Do](#ToDo)
+* [To Do](#todo)
 
 ## Installation
     
@@ -58,31 +60,31 @@ source ./db/seeds.sql
 
 The application supports the follwing funcitonalities:
 
-# Users
+### Users
 ```
 1. Create a new user
 2. Login an existing user
 ```
-# Accounts
+### Accounts
 ```
 1. Create a new account
 2. View all accounts and balances
 3. View an account and its associated transactions
 ```
-# Transactions
+### Transactions
 ```
 1. Create a new transaction
 ```
 
 ## API
 
-# Logout
+### Logout
 ```
 curl --request POST \
   --url http://localhost:3001/api/user/logout/ \
   --cookie connect.sid=s%253ArSlAvio9CwZvRZtFePi0QDUbS0-QQ9X8.kv9oK0dAJ6%252BEhgRbnFq0suJdSwDBfLA%252BhZUBC7od4%252B8
 ```
-# Login
+### Login
 ```
 curl --request POST \
   --url http://localhost:3001/api/user/login/ \
@@ -93,7 +95,7 @@ curl --request POST \
 	"password" : "password123456"
 }'
 ```
-# Create User
+### Create User
 ```
 curl --request POST \
   --url http://localhost:3001/api/user/ \
@@ -106,7 +108,7 @@ curl --request POST \
 }'
 ```
 
-# Create Account
+### Create Account
 ```
 curl --request POST \
   --url http://localhost:3001/api/account/ \
@@ -118,21 +120,21 @@ curl --request POST \
 	"balance" : 15000
 }'
 ```
-# Get Account
+### Get Account
 ```
 curl --request GET \
   --url http://localhost:3001/api/account/6 \
   --header 'Content-Type: application/json' \
   --cookie connect.sid=s%253ArSlAvio9CwZvRZtFePi0QDUbS0-QQ9X8.kv9oK0dAJ6%252BEhgRbnFq0suJdSwDBfLA%252BhZUBC7od4%252B8
   ```
-  # Get A Transaction
+### Get A Transaction
  ```
 curl --request GET \
   --url http://localhost:3001/api/account/6 \
   --header 'Content-Type: application/json' \
   --cookie connect.sid=s%253ArSlAvio9CwZvRZtFePi0QDUbS0-QQ9X8.kv9oK0dAJ6%252BEhgRbnFq0suJdSwDBfLA%252BhZUBC7od4%252B8
 ```
-  # Get All Transactions for an Account
+### Get All Transactions for an Account
 ```
     curl --request GET \
   --url http://localhost:3001/api/transaction/ \
@@ -142,7 +144,7 @@ curl --request GET \
 	"account_id": 34
 }'
 ```
-# Creat a Transaction
+### Creat a Transaction
 ```
 curl --request POST \
   --url http://localhost:3001/api/transaction/ \
@@ -156,7 +158,7 @@ curl --request POST \
 }'
 ```
 
-# Screenshots
+## Screenshots
 
 ![alt Homepage](/assets/images/homepage.png)
 
@@ -165,17 +167,22 @@ curl --request POST \
 ![alt Transfer](/assets/images/Transfer.png)
 
 ![alt Statement](/assets/images/Statement.png)
-# API
+
+## API
 
 ![alt Landing Page](/assets/images/API_Endpoints_available_from_the_FE.PNG)
 
 
-# Front End
+## Front End
 
 
 ## Deployment
 
-[Deployed Version]( https://peaceful-lassen-volcanic-80125.herokuapp.com/)
+[Deployed Version](https://peaceful-lassen-volcanic-80125.herokuapp.com/)
+
+## Docker
+
+[Docker Repository](https://hub.docker.com/r/chrisaylen/bankheist/)
    
 ## License
     
